@@ -11,24 +11,30 @@ class Graph:
         """
         Add a vertex to the graph.
         """
-        pass  
+        self.vertices[vertex] = set()
     def add_edge(self, v1, v2):
         """
         Add a directed edge to the graph.
         """
-        pass  # TODO
+        if v1 in self.vertices and v2 in self.vertices:
+            self.vertices[v1].add(v2)
+            else:
+                raise IndexError("That vertex does not exist!")
+
     def bft(self, starting_vertex):
         """
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
         pass  # TODO
+
     def dft(self, starting_vertex):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
         """
         pass  # TODO
+
     def dft_recursive(self, starting_vertex):
         """
         Print each vertex in depth-first order
@@ -36,6 +42,7 @@ class Graph:
         This should be done using recursion.
         """
         pass  # TODO
+
     def bfs(self, starting_vertex, destination_vertex):
         """
         Return a list containing the shortest path from
@@ -43,6 +50,7 @@ class Graph:
         breath-first order.
         """
         pass  # TODO
+        
     def dfs(self, starting_vertex, destination_vertex):
         """
         Return a list containing a path from
