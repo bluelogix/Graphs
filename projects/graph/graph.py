@@ -18,15 +18,25 @@ class Graph:
         """
         if v1 in self.vertices and v2 in self.vertices:
             self.vertices[v1].add(v2)
-            else:
-                raise IndexError("That vertex does not exist!")
+        else:
+            raise IndexError("That vertex does not exist!")
 
     def bft(self, starting_vertex):
         """
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        queue = Queue()
+        queue.enqueue(starting_vertex)
+        visited = set()
+        while queue.size > 0:
+            vertex = queue.dequeue()
+            if vertex not in visited:
+                print(vertex)
+                visited.add(vertex)
+                for next_vertex in self.vertices[vertex]:
+                    queue.enqueue(next_vertex)
+
 
     def dft(self, starting_vertex):
         """
@@ -50,7 +60,7 @@ class Graph:
         breath-first order.
         """
         pass  # TODO
-        
+
     def dfs(self, starting_vertex, destination_vertex):
         """
         Return a list containing a path from
