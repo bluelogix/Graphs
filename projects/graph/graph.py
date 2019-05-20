@@ -53,7 +53,9 @@ class Graph:
                 for next_vertex in self.vertices[vertex]:
                     stack.push(next_vertex)
 
-    def dft_recursive(self, starting_vertex,visited=set()):
+    def dft_recursive(self, starting_vertex,visited=None):
+        if visited is None:
+            visited = set()
         print(starting_vertex)
         visited.add(starting_vertex)
         for vertex in self.vertices[starting_vertex]:
